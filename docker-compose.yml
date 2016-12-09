@@ -5,7 +5,7 @@ services:
      image: jsevans/docker-tor-armhf-hidden-service
      links:
           - wordpress
-
+     restart: always
 # Keep keys in volumes
      volumes:
           - "~/.keys/:/var/lib/tor/hidden_service/"
@@ -24,7 +24,7 @@ services:
   wordpress:
      depends_on:
           - db
-     image: jsevans/wordpress-arm
+     image: armhf/wordpress
      links:
           - db
      restart: always
